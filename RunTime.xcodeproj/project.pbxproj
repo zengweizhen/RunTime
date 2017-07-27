@@ -15,6 +15,10 @@
 		B4455E3A1F29E16100CD3053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4455E381F29E16100CD3053 /* LaunchScreen.storyboard */; };
 		B4455E451F29E16100CD3053 /* RunTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4455E441F29E16100CD3053 /* RunTimeTests.m */; };
 		B4455E501F29E16100CD3053 /* RunTimeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4455E4F1F29E16100CD3053 /* RunTimeUITests.m */; };
+		B4455E601F29E1DC00CD3053 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = B4455E5F1F29E1DC00CD3053 /* NullSafe.m */; };
+		B4455E631F2A060100CD3053 /* NSMutableArray+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = B4455E621F2A060100CD3053 /* NSMutableArray+NilSafe.m */; };
+		B4455E661F2A068300CD3053 /* NSMutableDictionary+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = B4455E651F2A068300CD3053 /* NSMutableDictionary+NilSafe.m */; };
+		B4455E691F2A089F00CD3053 /* NSArray+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = B4455E681F2A089F00CD3053 /* NSArray+NilSafe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,13 @@
 		B4455E4B1F29E16100CD3053 /* RunTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4455E4F1F29E16100CD3053 /* RunTimeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunTimeUITests.m; sourceTree = "<group>"; };
 		B4455E511F29E16100CD3053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4455E5F1F29E1DC00CD3053 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
+		B4455E611F2A060100CD3053 /* NSMutableArray+NilSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+NilSafe.h"; sourceTree = "<group>"; };
+		B4455E621F2A060100CD3053 /* NSMutableArray+NilSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NilSafe.m"; sourceTree = "<group>"; };
+		B4455E641F2A068300CD3053 /* NSMutableDictionary+NilSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+NilSafe.h"; sourceTree = "<group>"; };
+		B4455E651F2A068300CD3053 /* NSMutableDictionary+NilSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NilSafe.m"; sourceTree = "<group>"; };
+		B4455E671F2A089F00CD3053 /* NSArray+NilSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NilSafe.h"; sourceTree = "<group>"; };
+		B4455E681F2A089F00CD3053 /* NSArray+NilSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NilSafe.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +112,7 @@
 		B4455E291F29E16100CD3053 /* RunTime */ = {
 			isa = PBXGroup;
 			children = (
+				B4455E5D1F29E1A300CD3053 /* Category */,
 				B4455E2D1F29E16100CD3053 /* AppDelegate.h */,
 				B4455E2E1F29E16100CD3053 /* AppDelegate.m */,
 				B4455E301F29E16100CD3053 /* ViewController.h */,
@@ -138,6 +150,20 @@
 				B4455E511F29E16100CD3053 /* Info.plist */,
 			);
 			path = RunTimeUITests;
+			sourceTree = "<group>";
+		};
+		B4455E5D1F29E1A300CD3053 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B4455E5F1F29E1DC00CD3053 /* NullSafe.m */,
+				B4455E611F2A060100CD3053 /* NSMutableArray+NilSafe.h */,
+				B4455E621F2A060100CD3053 /* NSMutableArray+NilSafe.m */,
+				B4455E641F2A068300CD3053 /* NSMutableDictionary+NilSafe.h */,
+				B4455E651F2A068300CD3053 /* NSMutableDictionary+NilSafe.m */,
+				B4455E671F2A089F00CD3053 /* NSArray+NilSafe.h */,
+				B4455E681F2A089F00CD3053 /* NSArray+NilSafe.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,8 +303,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4455E321F29E16100CD3053 /* ViewController.m in Sources */,
+				B4455E631F2A060100CD3053 /* NSMutableArray+NilSafe.m in Sources */,
+				B4455E691F2A089F00CD3053 /* NSArray+NilSafe.m in Sources */,
 				B4455E2F1F29E16100CD3053 /* AppDelegate.m in Sources */,
 				B4455E2C1F29E16100CD3053 /* main.m in Sources */,
+				B4455E661F2A068300CD3053 /* NSMutableDictionary+NilSafe.m in Sources */,
+				B4455E601F29E1DC00CD3053 /* NullSafe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
