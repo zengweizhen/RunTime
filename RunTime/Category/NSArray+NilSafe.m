@@ -54,7 +54,7 @@
 
 - (id)safe_objectAtIndex:(NSInteger)index{
     
-    if (index <= self.count) {
+    if (index < self.count) {
         
         return [self safe_objectAtIndex:index];
         
