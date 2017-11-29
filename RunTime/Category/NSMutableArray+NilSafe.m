@@ -18,9 +18,14 @@
         ///动态运行时校验两个方法
         [obj swizzleMethod:@selector(addObject:) withMethod:@selector(safe_addObject:)];
         [obj swizzleMethod:@selector(objectAtIndex:) withMethod:@selector(safe_objectAtIndex:)];
+        [obj swizzleMethod:@selector(setObject:atIndexedSubscript:) withMethod:@selector(safe_setObject:atIndexedSubscript:)];
+        [obj swizzleMethod:@selector(removeObject:) withMethod:@selector(safe_removeObject:)];
+        [obj swizzleMethod:@selector(removeObjectAtIndex:) withMethod:@selector(safe_removeObjectAtIndex:)];
+        [obj swizzleMethod:@selector(insertObject:atIndex:) withMethod:@selector(safe_insertObject:atIndex:)];
     });
     
 }
+
 
 - (void)swizzleMethod:(SEL)origSelector withMethod:(SEL)newSelector{
     
@@ -53,6 +58,26 @@
     
 }
 
+-(void)safe_removeObject:(id)anObject{
+    
+    if (!anObject) {
+        NSLog(@"remove object can not be nil");
+    }else{
+        [self safe_removeObject:anObject];
+    }
+
+}
+
+-(void)safe_removeObjectAtIndex:(NSUInteger)index{
+    
+    if (index > self.count) {
+        NSLog(@"数组下标越界");
+    }else{
+        [self safe_removeObjectAtIndex:index];
+    }
+    
+}
+
 - (void)safe_addObject:(id)value{
     
     if (value) {
@@ -77,6 +102,33 @@
         
     }
     
+}
+
+-(void)safe_setObject:(id)obj atIndexedSubscript:(NSUInteger)idx{
+    
+    if (!obj || (idx > self.count)) {
+        NSLog(@"数组下标越界,obj为nil");
+    }else{
+        [self safe_setObject:obj atIndexedSubscript:idx];
+    }
+}
+
+-(void)safe_removeObjectsInRange:(NSRange)range{
+    
+    if (range.location == self.count) {
+        NSLog(@"数组下标越界");
+    }else{
+        [self safe_removeObjectsInRange:range];
+    }
+}
+
+-(void)safe_insertObject:(id)anObject atIndex:(NSUInteger)index{
+    
+    if (!anObject) {
+        NSLog(@"insertObject object can not be nil");
+    }else{
+        [self safe_insertObject:anObject atIndex:index];
+    }
 }
 
 @end

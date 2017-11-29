@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.view.backgroundColor = [UIColor cyanColor];
     
     id obj = nil;
@@ -29,6 +29,8 @@
     [array addObject:obj];
     ///数组下标越界
     [array objectAtIndex:2];
+    [array removeObjectAtIndex:3];
+    [dic removeObjectForKey:@"key"];
 }
 
 
@@ -36,3 +38,4 @@
 
 
 @end
+

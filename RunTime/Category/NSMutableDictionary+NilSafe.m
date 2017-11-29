@@ -57,7 +57,9 @@
         id obj = [[self alloc] init];
         
         [obj swizzleMethod:@selector(setObject:forKey:) withMethod:@selector(safe_setObject:forKey:)];
-        
+        [obj swizzleMethod:@selector(setValue:forKey:) withMethod:@selector(safe_setValue:forKey:)];
+        [obj swizzleMethod:@selector(removeObjectForKey:) withMethod:@selector(safe_removeObjectForKey:)];
+       
         
     });
     
@@ -75,6 +77,29 @@
         
         NSLog(@"[NSMutableDictionary setObject: forKey:], Object cannot be nil");
         
+    }
+    
+}
+
+-(void)safe_setValue:(id)value forKey:(NSString *)key{
+    
+    if (value) {
+        
+        [self safe_setValue:value forKey:key];
+        
+    }else {
+        
+        NSLog(@"[NSMutableDictionary setValue: forKey:], Value cannot be nil");
+        
+    }
+}
+
+-(void)safe_removeObjectForKey:(id)aKey{
+    
+    if (!aKey) {
+        NSLog(@"The Key of removeObjectForKey can not be nil");
+    }else{
+        [self safe_removeObjectForKey:aKey];
     }
     
 }
